@@ -7,20 +7,26 @@
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
+    @if ($user->roles_id == 1)
+        Anda login Sebagai Admin
+    @else
+    Anda Login Sebagi User
+    @endif
 @stop
 
 @section('footer')
     <div class="float-right d-none d-sm-block">
         <b>Version</b> 1.0.0
     </div>
-    <strong>CopyRight $copy; {{date('Y')}}
-        <a href="http://ft.unsur.ac.id/" target="_blank">Fakultas Teknik, Universitas Suryakancana</a>.</strong>All Right Reserved
+    <strong>CopyRight &copy; {{date('Y')}}
+    <a href="http://ft.unsur.ac.id/" target="_blank">Fakultas Teknik,
+    Universitas Suryakancana</a>.</strong> All Right reserved
+@stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+        <link rel="stylesheet" href="/css/admin_custom.css">
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+        <script>console.log ('Hi!')</script>
 @stop

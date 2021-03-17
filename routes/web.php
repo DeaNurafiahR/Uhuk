@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,21 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/user/{name?}', function ($name=null) {
-//     return "halo ".$name;
-// });
+Auth::routes();
 
-// Route::view('/hello', 'hello', ['name' => 'Kimin']);
-
-// Route::redirect('/hello', '/');
-
-// Route::get('/', function () {
-//     return view('tryblade.child');
-// });
-
-Route::view('/try', 'tryblade.child');
-
-
-
+Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/buku', [App\Http\Controllers\HomeController::class, 'buku'])->name('buku');
+Route::get('admin/home', [App\Http\Controllers\AdminController::class, 'index'])
+    ->name('admin.home')
+    ->middleware('isadmin');
